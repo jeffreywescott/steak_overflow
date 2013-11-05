@@ -42,6 +42,10 @@ h1 a {
   display: inline-block;
 }
 
+.description {
+  display: none;
+}
+
 body {
   margin: 0;
 }

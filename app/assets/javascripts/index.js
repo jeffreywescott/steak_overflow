@@ -1,19 +1,19 @@
 var descriptionHandler = {
-  showDescription: function(e, description_json) {
-    var $descriptionDiv = $('#topic_'+description_json.topic_id)
-    if ($descriptionDiv.hasClass( "closed" )) {
-      $descriptionDiv.hide()
-      $descriptionDiv.html(description_json.description)
+  showDescription: function(e, xhr) {
+    xhr.abort(); // stop the AJAX call
+    var $descriptionDiv = $(this).closest('.topic').find('.description');
+    if ( $descriptionDiv.hasClass("closed") ) {
       $descriptionDiv.slideDown("slow")
-      $descriptionDiv.prop("class", "open")
-    }
-    else {
+      $descriptionDiv.removeClass("closed")
+      $descriptionDiv.addClass("open")
+    } else {
       $descriptionDiv.slideUp("slow")
-      $descriptionDiv.prop("class", "closed")
+      $descriptionDiv.removeClass("open")
+      $descriptionDiv.addClass("closed")
     }
   }
 }
 
 $(document).ready(function() {
-  $('.description').on('ajax:success', descriptionHandler.showDescription)
+  $('.title').on('ajax:beforeSend', descriptionHandler.showDescription)
 });

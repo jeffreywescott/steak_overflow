@@ -5,12 +5,16 @@
 <div id="content">
   <p>CUTS:</p>
   <% @topics.each do |topic| %>
-  <div class="topic"><%= link_to topic.title, topic_path(topic.id), remote: true, class: "description" %>
-  <span class="comment_link"><%= link_to "comment", topic_comments_path(topic.id) %></span><br/>
-  <div id="topic_<%=topic.id%>" class="closed"></div>
-  </div><br/>
+  <div class="topic">
+    <%= link_to topic.title, "#", remote: true, class: "title" %>
+    <span class="comment_link">
+      <%= link_to "comment", topic_comments_path(topic.id) %>
+    </span>
+    <br/>
+    <div class="description closed"><%= topic.content %></div>
+  </div>
+  <br/>
   <% end %>
   <br/>
 </div>
 <br/>
-
