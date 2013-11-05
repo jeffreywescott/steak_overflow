@@ -10,6 +10,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'better_errors'
+  gem 'simplecov', require: false
 end
 
 group :test do
