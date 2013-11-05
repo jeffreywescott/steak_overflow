@@ -11,7 +11,7 @@ feature "Homepage" do
     topic = Topic.create(title: "okay so steak", content: "is yummy")
     visit root_path
     click_on "okay so steak"
-    expect(current_path).to eq(topic_path(topic.id))
+    expect(page).to have_content(topic.content)
   end
 end
 
