@@ -6,12 +6,6 @@ class CommentsController < ApplicationController
     @comment      = @topic.comments.new
   end
 
-  def new
-    @topic = Topic.find(params[:id])
-    @comment = @topic.comments.new
-    render :new
-  end
-
   def create
     @topic = Topic.find(params[:topic_id])
     @comment = @topic.comments.new
