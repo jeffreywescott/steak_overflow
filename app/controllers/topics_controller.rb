@@ -9,9 +9,13 @@ class TopicsController < ApplicationController
   end
 
   def update
-    @topic = Topic.find(params[:id])
-    @topic.update_attributes(params[:topic])
-    redirect_to user_path(@topic.user_id)
+    topic = Topic.find(params[:id])
+    topic.update_attributes(params[:topic])
+    if topic.user_id
+      redirect_to user_path(topic.user_id)
+    else
+      redirect_to topics_path
+    end
   end
 
   def new
