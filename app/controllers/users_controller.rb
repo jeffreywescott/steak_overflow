@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  include SessionsHelper
-
   def new
     @user = User.new
     render :new
@@ -9,8 +7,7 @@ class UsersController < ApplicationController
 
   def show
     if logged_in?
-      @current_user = set_current_user
-    	@topics = @current_user.topics
+    	@topics = current_user.topics
     else
       redirect_to root_path
     end

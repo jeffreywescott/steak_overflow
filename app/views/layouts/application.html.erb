@@ -14,8 +14,8 @@
     </ul>
     <ul class="nav_list">
       <% if logged_in? %>
-      <li><h2><%= link_to @current_user.username, user_path(@current_user)%></h2></li>
-      <li><%= link_to "Log Out", session_path(@current_user.id), method: 'delete', class: "button" %></li>
+      <li><h2><%= link_to current_user.username, user_path(current_user)%></h2></li>
+      <li><%= link_to "Log Out", session_path(current_user.id), method: 'delete', class: "button" %></li>
       <% end %>
       <% if !logged_in? %>
       <li><%= link_to "Sign Up", new_user_path, class: "button" %></li>

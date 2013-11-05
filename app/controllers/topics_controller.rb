@@ -1,14 +1,10 @@
 class TopicsController < ApplicationController
 
-  include SessionsHelper
-
   def index
-    @current_user = set_current_user if logged_in?
     @topics       = Topic.all
   end
 
   def edit
-    @current_user = set_current_user if logged_in?
     @topic        = Topic.find(params[:id])
   end
 
@@ -19,7 +15,6 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @current_user = set_current_user if logged_in?
     @topic        = Topic.new
     render :new
   end

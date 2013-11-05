@@ -14,3 +14,8 @@
 4. User can modify their topics
   * edit
   * delete
+
+
+## TODO
+
+- research how to use link_to for non-AJAX JS functionality in Rails
